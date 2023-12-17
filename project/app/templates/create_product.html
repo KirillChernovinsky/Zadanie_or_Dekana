@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form class='forms_area' action="" method="post">
+        <div class="create_new_tovar">
+            <p>Категории писать чётко как на главной странице, </p>
+            {% csrf_token %}
+            {{ form }}
+        </div>
+
+        <button>Отправить</button>
+    </form>
+
+</body>
+</html>

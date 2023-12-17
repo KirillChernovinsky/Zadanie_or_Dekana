@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <meta charset="UTF-8">
+    <title>Elprimo</title>
+</head>
+<body>
+{% include "header.html" %}
+
+
+
+    <div class="main-conteiner">
+        <div class="main-conteiner_">
+
+            <div class="catalog-wrapper">
+                <div class="search">
+                    <input class="search-form" type="text">
+                    <a class="items_in_catalog" href="{% url 'create_product' %}">Добавить товары</a>
+                </div>
+                <div class="catalog-wrapper">
+                    <ul class="catolog-list">
+                        <li class="catalog-item">
+                            <a class="items_in_catalog" href="#"> Телефоны </a>
+                        </li>
+                        <li class="catalog-item">
+                            <a class="items_in_catalog" href="#"> Ноутбуки </a>
+                        </li>
+                        <li class="catalog-item">
+                            <a class="items_in_catalog" href="#"> ПК </a>
+                        </li>
+<!--                        <li class="catalog-item">-->
+<!--                            Стиральные Машины-->
+<!--                        </li>-->
+<!--                        <li class="catalog-item">-->
+<!--                            Пылесосы-->
+<!--                        </li>-->
+<!--                        <li class="catalog-item">-->
+<!--                            электрические плиты-->
+<!--                        </li>-->
+<!--                        <li class="catalog-item">-->
+<!--                            гриль-->
+<!--                        </li>-->
+                        <li class="catalog-item">
+                            <a class="items_in_catalog" href="#"> Акксессуары </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    {% for i in product %}
+    <div class="area-tovarov">
+        <div class="area-tovarov-wrapper">
+            <div class="tovar-img-wrapper">
+                <div class="tovar-img-wrapper1">
+
+
+                    <img class="tavor_img" src="{{i.product_img }}">
+
+                </div>
+
+            </div>
+            <div>
+                {{ i.product_name }}
+            </div>
+            <div class="tovar-description-wrapper">
+
+                {{ i.product_description }}
+            </div>
+            <a href="{% url 'delete' i.id %}">Удалить</a>
+
+        </div>
+    </div>
+    {% endfor %}
+
+
+
+
+
+{% include "footer.html" %}
+</body>
